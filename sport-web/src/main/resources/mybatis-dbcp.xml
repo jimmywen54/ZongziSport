@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    ">
+	<bean class="org.springframework.beans.factory.support.DefaultBeanNameGenerator" id="classNameGenerator"/>
+
+	<bean id="artistNameDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url"
+			value="jdbc:mysql://${artistname.jdbc.host}:${artistname.jdbc.port}/${artistname.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"></property>
+		<property name="username" value="${artistname.jdbc.username}"></property>
+		<property name="password" value="${artistname.jdbc.password}"></property>
+		<property name="maxActive" value="100"></property>
+		<property name="maxIdle" value="100"></property>
+		<property name="maxWait" value="5000"></property>
+		<property name="defaultAutoCommit" value="true"></property>
+		<property name="testOnBorrow" value="true"></property>
+		<property name="testWhileIdle" value="true"></property>
+		<property name="validationQuery" value="SELECT  1"/>  
+	</bean>
+
+	<bean id="artistNameSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="artistNameDataSource" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="typeAliasesPackage"
+			value="com.yy.ent.mobile.persist.db.model.artist,com.yy.ent.mobile.persist.db.gen.artist.model" />
+	</bean>
+
+	<bean id="artistNameMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.yy.ent.mobile.data.persist.db.artist.dao,com.yy.ent.mobile.persist.db.gen.artist.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="artistNameSqlSessionFactory" />
+	</bean>
+</beans>
