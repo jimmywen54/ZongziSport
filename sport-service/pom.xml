@@ -12,6 +12,10 @@
     <groupId>com.zongzisport</groupId>
     <artifactId>service</artifactId>
 
+    <properties>
+        <mongodb.version>3.0.1</mongodb.version>
+    </properties>
+
     <dependencies>
 
         <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
@@ -19,6 +23,14 @@
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>${dbcp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
         </dependency>
     </dependencies>
 
