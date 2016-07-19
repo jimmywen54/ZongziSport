@@ -14,32 +14,32 @@
 	http://www.springframework.org/schema/task
 	http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
-	<bean id="mobTrigger" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	<bean id="sportTrigger" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
 				<!--<ref bean="mobLiveUserUpdateJobTrigger"/>-->
 			</list>
 		</property>
-		<property name="taskExecutor" ref="executor_mob" />
+		<property name="taskExecutor" ref="executor_sport" />
 		<property name="waitForJobsToCompleteOnShutdown" value="true"/>
 	</bean>
 	
-	<bean id="executor_mob"
+	<bean id="executor_sport"
 		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
 		<property name="corePoolSize" value="10" />
 		<property name="maxPoolSize" value="64" />
 		<property name="queueCapacity" value="128" />
 	</bean>
 
-	<!--<bean id="mobLiveUserUpdateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="mobLiveUserUpdateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail">
 			<bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-				<property name="targetObject" ref="mobLiveUserUpdateJob" />
-				<property name="targetMethod" value="execute" />
+				<property name="targetObject" ref="sportTypeCacheJob" />
+				<property name="targetMethod" value="run" />
 				<property name="concurrent" value="false" />
 			</bean>
 		</property>
 		<property name="cronExpression" value="0/5 * * * * ?" />
-	</bean>-->
+	</bean>
 
 </beans>

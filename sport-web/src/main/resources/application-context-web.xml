@@ -24,7 +24,7 @@
 		</property>
 	</bean>
 	
-	<context:component-scan base-package="com.sport.service,com.sport.persist">
+	<context:component-scan base-package="com.sport.service,com.sport.persist,com.sport.schedule">
 		<context:exclude-filter expression="org.springframework.stereotype.Controller"
 			type="annotation" />
 	</context:component-scan>
