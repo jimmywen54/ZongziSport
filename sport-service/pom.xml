@@ -11,12 +11,19 @@
 
     <groupId>com.zongzisport</groupId>
     <artifactId>service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <mongodb.version>3.0.1</mongodb.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.zongzisport</groupId>
+            <artifactId>persist</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
         <dependency>

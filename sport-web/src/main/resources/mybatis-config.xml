@@ -7,7 +7,7 @@
         <setting name="defaultStatementTimeout" value="2000" />
     </settings>
     <plugins>
-        <plugin interceptor="com.yy.ent.mobile.persist.db.plugin.PaginationInterceptor">
+        <plugin interceptor="com.sport.persist.plugin.PaginationInterceptor">
             <property name="dialect" value="MYSQL" />
         </plugin>
     </plugins>

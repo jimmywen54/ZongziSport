@@ -6,30 +6,30 @@
     ">
 	<bean class="org.springframework.beans.factory.support.DefaultBeanNameGenerator" id="classNameGenerator"/>
 
-	<bean id="artistNameDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="sportDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:mysql://${artistname.jdbc.host}:${artistname.jdbc.port}/${artistname.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"></property>
-		<property name="username" value="${artistname.jdbc.username}"></property>
-		<property name="password" value="${artistname.jdbc.password}"></property>
+			value="jdbc:mysql://${sport.jdbc.host}:${sport.jdbc.port}/${sport.jdbc.dbname}?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true"></property>
+		<property name="username" value="${sport.jdbc.username}"></property>
+		<property name="password" value="${sport.jdbc.password}"></property>
 		<property name="maxActive" value="100"></property>
 		<property name="maxIdle" value="100"></property>
 		<property name="maxWait" value="5000"></property>
 		<property name="defaultAutoCommit" value="true"></property>
 		<property name="testOnBorrow" value="true"></property>
 		<property name="testWhileIdle" value="true"></property>
-		<property name="validationQuery" value="SELECT  1"/>  
+		<property name="validationQuery" value="SELECT  1"/>
 	</bean>
 
-	<bean id="artistNameSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="artistNameDataSource" />
+	<bean id="sportSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="sportDataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<property name="typeAliasesPackage"
-			value="com.yy.ent.mobile.persist.db.model.artist,com.yy.ent.mobile.persist.db.gen.artist.model" />
+			value="com.sport.persist.gen.dao.db.model,com.sport.persist.dao.db.model" />
 	</bean>
 
-	<bean id="artistNameMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.yy.ent.mobile.data.persist.db.artist.dao,com.yy.ent.mobile.persist.db.gen.artist.mapper" />
-		<property name="sqlSessionFactoryBeanName" value="artistNameSqlSessionFactory" />
+	<bean id="sportMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.sport.persist.gen.dao.db.mapper,com.sport.persist.dao.db.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sportSqlSessionFactory" />
 	</bean>
 </beans>

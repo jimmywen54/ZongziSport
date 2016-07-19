@@ -17,7 +17,7 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 		<property name="locations">
 			<list>
-				<value>classpath:application-sport-web.properties</value>
+				<value>classpath:application-context-web.properties</value>
 			</list>
 		</property>
 	</bean>

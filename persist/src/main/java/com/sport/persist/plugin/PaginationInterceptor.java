@@ -8,7 +8,7 @@
  * Confidential Information and shall use it only in accordance with
  * the terms of the license agreement you entered into with duowan.com.
  */
-package com.sport.persist.db.plugin;
+package com.sport.persist.plugin;
 
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.*;

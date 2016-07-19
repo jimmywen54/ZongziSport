@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-@Component("mongoDBService")
+//@Component("mongoDBService")
 @Scope("singleton")
 public class MongoDBService {
 
