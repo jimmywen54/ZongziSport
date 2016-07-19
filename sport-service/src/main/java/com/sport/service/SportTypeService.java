@@ -3,6 +3,7 @@ package com.sport.service;
 import com.sport.persist.gen.dao.db.mapper.SportTypeMapper;
 import com.sport.persist.gen.dao.db.model.SportType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,9 @@ import java.util.List;
 public class SportTypeService {
     @Autowired
     private SportTypeMapper sportTypeMapper;
+
+    @Autowired
+    private CacheManager cacheManager;
 
     public List<SportType> queryAll() throws Exception {
         return sportTypeMapper.selectByExample(null);

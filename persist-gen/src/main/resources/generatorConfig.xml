@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	<context id="zongziSport" targetRuntime="MyBatis3">
+
+		<plugin type="org.mybatis.generator.plugins.AddLimitOffsetPlugin" />
+
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<!-- remove comments -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/sport?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="root" password="root" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.sport.persist.gen.dao.db.model"
+			targetProject="./src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="com.sport.persist.gen.dao.db.mapper"
+			targetProject="./src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="sport_type">
+			<generatedKey column="id" sqlStatement="JDBC" />
+		</table>
+
+	</context>
+</generatorConfiguration>

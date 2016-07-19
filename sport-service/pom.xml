@@ -21,7 +21,13 @@
 
         <dependency>
             <groupId>com.zongzisport</groupId>
-            <artifactId>persist</artifactId>
+            <artifactId>sport-persist</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zongzisport</groupId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
