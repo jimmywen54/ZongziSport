@@ -5,6 +5,8 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by wzm on 2016/7/19.
  */
@@ -27,7 +29,19 @@ public abstract class BaseCacheService<T> {
     public T getCache() {
         Cache cache = getValidCache();
         Cache.ValueWrapper wrapper = cache.get(getKey());
-        return (T)wrapper;
+        if (wrapper == null) {
+            return null;
+        }
+        return (T) wrapper.get();
+    }
+
+    public List<T> getCacheForList() {
+        Cache cache = getValidCache();
+        Cache.ValueWrapper wrapper = cache.get(getKey());
+        if (wrapper == null) {
+            return null;
+        }
+        return (List<T>) wrapper.get();
     }
 
     private Cache getValidCache() {

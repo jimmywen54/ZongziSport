@@ -1,14 +1,18 @@
 package com.sport.web.controller;
 
 import com.sport.cache.SportTypeCacheService;
+import com.sport.common.base.BaseResult;
 import com.sport.persist.gen.dao.db.model.SportType;
 import com.sport.service.SportTypeService;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+
+import static org.slf4j.LoggerFactory.getLogger;
 
 /**
  * Created by wzm on 2016/7/19.
@@ -21,6 +25,8 @@ public class SportTypeController {
 
     @Autowired
     private SportTypeCacheService sportTypeCacheService;
+
+    private Logger LOG = getLogger(SportTypeController.class);
 
     @RequestMapping("/add")
     @ResponseBody
@@ -37,7 +43,14 @@ public class SportTypeController {
 
     @RequestMapping("/getCache")
     @ResponseBody
-    public List<SportType> getCache() throws Exception {
-        return sportTypeCacheService.getCache();
+    public BaseResult<List<SportType>> getCache() throws Exception {
+        List cache = sportTypeCacheService.getCacheForList();
+        BaseResult<List<SportType>> result;
+        if (cache == null) {
+            result = new BaseResult<List<SportType>>().dataErrorCode();
+        } else {
+            result = new BaseResult<List<SportType>>().successCode(cache);
+        }
+        return result;
     }
 }

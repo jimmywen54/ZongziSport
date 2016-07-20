@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="true" scan="true">
-	<property name="LOG_HOME" value="/data/weblog/java/admin.3g.yy.com" />
+	<property name="LOG_HOME" value="D:\log" />
 
 	<appender name="error_file"
 			  class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -102,10 +102,11 @@
 		</encoder>
 	</appender>
 
-	<root level="warn">
+	<root level="info">
 		<appender-ref ref="warn_file" />
 		<appender-ref ref="info_file" />
 		<appender-ref ref="error_file" />
+		<appender-ref ref="STDOUT" />
 		${logback-console}
 	</root>
 </configuration>

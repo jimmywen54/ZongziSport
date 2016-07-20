@@ -17,21 +17,21 @@ import static org.slf4j.LoggerFactory.getLogger;
  * Created by wzm on 2016/7/19.
  */
 @Service
-public class SportTypeCacheService extends BaseCacheService<List<SportType>> {
+public class SportTypeCacheService extends BaseCacheService {
     @Autowired
     private SportTypeService sportTypeService;
 
     private Logger LOG = getLogger(SportTypeCacheService.class);
 
     @Override
-    public List<SportType> getObject() {
+    public List getObject() {
         try {
             List<SportType> sportTypes = sportTypeService.queryAll();
             return sportTypes;
         } catch (Exception e) {
             LOG.warn("sportTypeService.queryAll occur error ", e);
         }
-        return new ArrayList<SportType>(0);
+        return new ArrayList(0);
     }
 
     @Override

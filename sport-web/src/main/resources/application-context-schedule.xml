@@ -17,7 +17,7 @@
 	<bean id="sportTrigger" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<!--<ref bean="mobLiveUserUpdateJobTrigger"/>-->
+				<ref bean="sportTypeCacheJobTrigger"/>
 			</list>
 		</property>
 		<property name="taskExecutor" ref="executor_sport" />
@@ -31,7 +31,7 @@
 		<property name="queueCapacity" value="128" />
 	</bean>
 
-	<bean id="mobLiveUserUpdateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="sportTypeCacheJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail">
 			<bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 				<property name="targetObject" ref="sportTypeCacheJob" />
