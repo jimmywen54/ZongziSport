@@ -12,7 +12,7 @@
         <module>sport-common</module>
         <module>sport-service</module>
         <module>sport-web</module>
-        <module>persist</module>
+        <module>sport-persist</module>
         <module>persist-gen</module>
     </modules>
 
@@ -27,6 +27,9 @@
         <mongodb.version>3.2.2</mongodb.version>
         <mobile.redis>1.0.2</mobile.redis>
         <jackson.version>2.3.3</jackson.version>
+        <joda_time.version>2.3</joda_time.version>
+        <dozer.version>5.5.1</dozer.version>
+        <quartz.version>1.8.6</quartz.version>
     </properties>
 
     <dependencies>
@@ -402,7 +405,19 @@
             <dependency>
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz</artifactId>
-                <version>1.8.6</version>
+                <version>${quartz.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda_time.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
             </dependency>
 
         </dependencies>

@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
-//@Component("mongoDBService")
+@Component("mongoDBService")
 @Scope("singleton")
 public class MongoDBService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MongoDBService.class);
 
-	private static final String TAG_DB = "sport";
+	private static final String SPORT_DB = "sport";
 
 	private MongoClient mongoClient = null;
 
@@ -52,7 +52,7 @@ public class MongoDBService {
 			if(StringUtils.isBlank(userName)){
 				mongoClient = new MongoClient(parseServers(mongodbServers), options);
 			}else{
-				MongoCredential credential = MongoCredential.createCredential(userName, TAG_DB, password.toCharArray());
+				MongoCredential credential = MongoCredential.createCredential(userName, SPORT_DB, password.toCharArray());
 				mongoClient = new MongoClient(parseServers(mongodbServers), Lists.newArrayList(credential), options);
 			}
 			LOGGER.info("MongoDBService inited....");
@@ -74,7 +74,7 @@ public class MongoDBService {
 	}
 
 	public MongoDatabase getTagDatabase(){
-		return getDatabase(TAG_DB);
+		return getDatabase(SPORT_DB);
 	}
 	
 	public MongoDatabase getDatabaseWithWriteUnSafe(String dbName){

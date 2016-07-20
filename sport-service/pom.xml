@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zongzisport</groupId>
-    <artifactId>service</artifactId>
+    <artifactId>sport-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>

@@ -27,7 +27,7 @@
 
         <dependency>
             <groupId>com.zongzisport</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>sport-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
